@@ -1,14 +1,23 @@
-yaml
+
 name: CI Pipeline
 
-on: push
+'on':
+  push:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Started"
-      - run: pwd
-      - run: ls
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print started message
+        run: echo "Started"
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
+
